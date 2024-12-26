@@ -3,12 +3,10 @@ function findLongestWord(string) {
   let words = string.split(" "); // Split string by spaces
   let longword = words[0]; // Assume the first word is the longest
 
-  for (let word of words) {
-    if (word.length > longword.length) {
-      longword = word; // Update if a longer word is found
-    }
-  }
-  return longword;
+  return words.reduce(
+    (accum, currValue) => (currValue.length > accum.length ? currValue : accum),
+    ""
+  );
 }
 
 // Select elements from the DOM
